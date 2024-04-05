@@ -1,0 +1,14 @@
+label{
+    display: inline-block;
+    background-color:white;
+    width: 10%;
+}
+
+table, th, td {
+    background-color: greenyellow;
+    border: 1px solid black;
+}
+
+th{
+    background-color: greenyellow;    
+}

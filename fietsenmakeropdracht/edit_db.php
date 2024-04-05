@@ -1,5 +1,5 @@
 <?php 
-// auteur: Emirhan
+// auteur Farai de grave
 //Functie: data fiets update in database
 
 // test of er data is gepost
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     //WHERE fietsen.id = 1;
 
      // connect database
-     include "connect.php";
+     include "crud.php";
 
      // Maak een query
      $sql = " 
@@ -30,21 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             ':id'=>$_POST['id']
 
      ]);
-
-     // test of insert gelukt is
-     if($stmt->rowCount() == 1){
-        echo "<script>alert('Fiets is gewijzigd')</script>";
-        echo "<script> location.replace('crud.php'); </script>";
-    } else {
-        echo '<script>alert("Fiets is NIET gewijzigd")</script>';
-     }
-
-
-
+    //informatie sturen naar de crud
      if ($status) {
      header("Location: crud.php");
         exit();
-} else {
+} 
+else {
     echo "Update is fout gegaan<br>";
 }}
 ?>

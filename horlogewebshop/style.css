@@ -1,0 +1,46 @@
+/* Stijl voor de productentabel */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Stijl voor de pagina titel */
+h2 {
+    color: #333;
+}
+
+/* Stijl voor de foutmelding */
+.error-msg {
+    color: red;
+    font-weight: bold;
+}
+
+/* Stijl voor de footer */
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+.verwijder{
+    margin-bottom: -50px;
+}

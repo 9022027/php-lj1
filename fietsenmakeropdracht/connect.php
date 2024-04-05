@@ -1,6 +1,6 @@
 <?php
 // Auteur: Farai de grave
-// Functie: connectie maken met de database fietsenmakerC
+// Fucntie: connectie maken met de eerste database fietsenmaker
 $servername = "localhost";
 $username = "root";
 $password = "";

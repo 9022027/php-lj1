@@ -1,5 +1,5 @@
 <?php
-// Auteur: Ahmet Enes
+// Auteur: Farai de grave
 // Functie: selecteer data
 
 // connect database
@@ -25,7 +25,7 @@ if (!empty($result)) {
     echo "<th>Merk</th>";
     echo "<th>Type</th>";
     echo "<th>Prijs</th>";
-    echo "<th>foto</th>";
+    echo "<th>Foto</th>";
     echo "</tr>";
 
     // Loop door de gegevens en toon elke rij
@@ -34,9 +34,9 @@ if (!empty($result)) {
         echo "<td>" . $row['merk'] . "</td> ";
         echo "<td>" . $row['type'] . "</td> ";
         echo "<td>" . $row['prijs'] . "</td>";
-
+        
         // Toon de afbeelding in de tabel
-        echo "<td><img src='img/" . $row['foto'] . "' alt='Fietsfoto'></td>";
+        echo "<td><img src='img/" . $row['Foto'] . "' alt='Fietsfoto'></td>";
 
         echo "</tr>";
     }

@@ -1,22 +1,34 @@
 <?php
-    echo "<h1>Delete fiets</h1>";
+// Auteur: Farai de grave
+// Functie: verwijder data
 
-    try{
-        // Connect database
-        include "connect.php";
+// Controleer of de id parameter is ingesteld en geldig is
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    // Verbind met de database
+    include "connect.php"; // Zorg ervoor dat dit bestand de juiste databaseverbinding bevat
 
-        // Delete row from table using prepared statement
-        $sql = "DELETE FROM fietsen WHERE id = ?";
-        $query = $conn->prepare($sql);
-        $query->execute(["id"]);
+    // Voorbereid SQL-query om de rij met de opgegeven id te verwijderen
+    $sql = "DELETE FROM fietsen WHERE id = :id";
+
+    // Prepare
+    $stmt = $conn->prepare($sql);
+
+    // Bind de parameters
+    $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+
+    // Uitvoeren
+    if ($stmt->execute()) {
+        // Rij succesvol verwijderd, doorsturen naar de startpagina of een andere pagina
+        header("Location: crud.php"); // Verander index.php naar de naam van de pagina waar je naartoe wilt doorsturen na het verwijderen
+        exit();
+    } else {
+        // Er is een fout opgetreden bij het verwijderen van de rij
+        echo "Fout bij het verwijderen van de rij: " . $stmt->errorInfo()[2];
+        exit();
     }
-    catch(PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
-    }
-
-    
+} else {
+    // Geen geldige id ontvangen
+    echo "Ongeldige id ontvangen.";
+    exit();
+}
 ?>
-<form action="" method="POST">
-    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-    <input type="submit" name="btn_verw" value="Verwijder">
-</form>
